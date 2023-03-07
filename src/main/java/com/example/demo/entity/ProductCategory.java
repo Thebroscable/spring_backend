@@ -20,6 +20,7 @@ public class ProductCategory {
     private Long id;
 
     @NotNull
+    @Column(length = 100)
     private String name;
 
     @Column(columnDefinition = "TEXT")

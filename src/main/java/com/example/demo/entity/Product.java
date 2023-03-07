@@ -21,6 +21,7 @@ public class Product {
     private Long id;
 
     @NotNull
+    @Column(length = 100)
     private String name;
 
     @Column(columnDefinition = "TEXT")
