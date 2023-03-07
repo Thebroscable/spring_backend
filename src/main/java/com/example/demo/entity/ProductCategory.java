@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import com.example.demo.dto.request.ProductCategoryRequest;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class ProductCategory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String name;
 
     @Column(columnDefinition = "TEXT")
