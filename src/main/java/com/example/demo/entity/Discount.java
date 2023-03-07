@@ -28,7 +28,7 @@ public class Discount implements Serializable {
     @NotNull
     private float discount_percent;
 
-    @Column(columnDefinition = "boolean default false")
+    @NotNull
     private Boolean active;
 
     public void setVariablesByRequest(DiscountRequest discountRequest) {
