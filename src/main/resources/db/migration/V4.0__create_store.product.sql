@@ -2,11 +2,11 @@ DROP TABLE IF EXISTS store.product CASCADE;
 
 CREATE TABLE store.product (
     id              bigserial NOT NULL,
-    name            VARCHAR(100),
+    name            VARCHAR(100) NOT NULL,
     description     TEXT,
     category_id     bigserial NOT NULL,
-    price           numeric,
-    quantity        int,
+    price           numeric NOT NULL,
+    quantity        int NOT NULL,
     discount_id     bigserial
 );
 
