@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS store.product_category CASCADE;
 
 CREATE TABLE store.product_category (
     id              bigserial NOT NULL,
-    name            VARCHAR(100),
+    name            VARCHAR(100) NOT NULL,
     description     TEXT
 );
 
