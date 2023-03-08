@@ -1,21 +1,17 @@
 package com.example.demo.config.auth;
 
-import ch.qos.logback.core.joran.action.PreconditionValidator;
 import com.example.demo.config.jwt.JwtService;
 import com.example.demo.constant.MessageConstant;
-import com.example.demo.constant.RoleName;
 import com.example.demo.entity.UserAccount;
 import com.example.demo.repository.UserAccountRepository;
 import io.jsonwebtoken.lang.Assert;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
-import java.util.function.Supplier;
 
 @Service
 @RequiredArgsConstructor
