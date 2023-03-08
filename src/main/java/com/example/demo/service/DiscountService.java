@@ -4,6 +4,7 @@ import com.example.demo.dto.request.DiscountRequest;
 import com.example.demo.dto.response.DiscountResponse;
 import com.example.demo.entity.Discount;
 import com.example.demo.repository.DiscountRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class DiscountService {
 
-    @Autowired
-    DiscountRepository discountRepository;
+    private final DiscountRepository discountRepository;
 
     public DiscountResponse getDiscountById(Long discountId) {
         Discount discount = discountRepository.getReferenceById(discountId);

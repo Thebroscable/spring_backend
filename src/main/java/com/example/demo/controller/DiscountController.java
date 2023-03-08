@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.request.DiscountRequest;
 import com.example.demo.dto.response.DiscountResponse;
 import com.example.demo.service.DiscountService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/discount")
 public class DiscountController {
 
-    @Autowired
-    DiscountService discountService;
+    private final DiscountService discountService;
 
     @GetMapping("/{discountId}")
     public ResponseEntity<DiscountResponse> getDiscountById(@PathVariable Long discountId) {

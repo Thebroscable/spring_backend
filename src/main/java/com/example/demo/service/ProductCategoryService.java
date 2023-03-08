@@ -4,6 +4,7 @@ import com.example.demo.dto.request.ProductCategoryRequest;
 import com.example.demo.dto.response.ProductCategoryResponse;
 import com.example.demo.entity.ProductCategory;
 import com.example.demo.repository.ProductCategoryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductCategoryService {
 
-    @Autowired
-    private ProductCategoryRepository productCategoryRepository;
+    private final ProductCategoryRepository productCategoryRepository;
 
     public ProductCategoryResponse getProductCategoryById(Long productCategoryId) {
         ProductCategory productCategory = productCategoryRepository.getReferenceById(productCategoryId);

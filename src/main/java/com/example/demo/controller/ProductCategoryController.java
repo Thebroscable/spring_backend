@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.request.ProductCategoryRequest;
 import com.example.demo.dto.response.ProductCategoryResponse;
 import com.example.demo.service.ProductCategoryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/product_category")
 public class ProductCategoryController {
 
-    @Autowired
-    private ProductCategoryService productCategoryService;
+    private final ProductCategoryService productCategoryService;
 
     @GetMapping("/{productCategoryId}")
     public ResponseEntity<ProductCategoryResponse> getProductCategoryById(@PathVariable Long productCategoryId) {
