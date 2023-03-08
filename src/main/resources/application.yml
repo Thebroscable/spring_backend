@@ -3,3 +3,9 @@ spring:
     password: qwerty
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
+
+security:
+  authentication:
+    jwt:
+      secret: 7133743677397A24432646294A404E635266556A586E32723475377821412544
+      token-validity: 1440000
