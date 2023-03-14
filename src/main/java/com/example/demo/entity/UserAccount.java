@@ -1,15 +1,13 @@
 package com.example.demo.entity;
 
-import com.example.demo.constant.RoleName;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -31,9 +29,14 @@ public class UserAccount implements UserDetails {
     @Column(length = 255)
     private String password;
 
-    // todo połączyć tabele z rolami
-    // @OneToMany(mappedBy = "user_account",fetch = FetchType.EAGER) // mapped by
-    // private List<Account2Role> account2RoleList;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "account2role",
+            schema = "users",
+            joinColumns = @JoinColumn(name = "user_account_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_role_id")
+    )
+    private Set<UserRole> userRoles;
 
     // todo dodać role do controllerów
     @Override
