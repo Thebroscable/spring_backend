@@ -31,9 +31,11 @@ public class UserAccount implements UserDetails {
     @Column(length = 255)
     private String password;
 
+    // todo połączyć tabele z rolami
     // @OneToMany(mappedBy = "user_account",fetch = FetchType.EAGER) // mapped by
     // private List<Account2Role> account2RoleList;
 
+    // todo dodać role do controllerów
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
