@@ -3,7 +3,9 @@ package com.example.demo.config.auth;
 import com.example.demo.config.jwt.JwtService;
 import com.example.demo.constant.MessageConstant;
 import com.example.demo.entity.UserAccount;
+import com.example.demo.entity.UserRole;
 import com.example.demo.repository.UserAccountRepository;
+import com.example.demo.repository.UserRoleRepository;
 import io.jsonwebtoken.lang.Assert;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,12 +14,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
 
     private final UserAccountRepository userAccountRepository;
+    private final UserRoleRepository userRoleRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -29,9 +33,12 @@ public class AuthenticationService {
                 MessageConstant.USER_EXISTS
         );
 
+        Set<UserRole> userRoles = userRoleRepository.findByName("ROLE_USER");
+
         UserAccount userAccount = UserAccount.builder()
                 .email(registerRequest.getEmail())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
+                .userRoles(userRoles)
                 .build();
 
         userAccountRepository.save(userAccount);

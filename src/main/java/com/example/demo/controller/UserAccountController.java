@@ -4,12 +4,14 @@ import com.example.demo.dto.response.UserAccountResponse;
 import com.example.demo.service.UserAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping(path = "/user_account")
 public class UserAccountController {
 
