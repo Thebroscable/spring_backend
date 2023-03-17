@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(schema = "store", name = "product_category")
 public class ProductCategory {
@@ -26,8 +27,4 @@ public class ProductCategory {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    public void setVariablesByRequest(ProductCategoryRequest productCategoryRequest) {
-        this.name = productCategoryRequest.getName();
-        this.description = productCategoryRequest.getDescription();
-    }
 }

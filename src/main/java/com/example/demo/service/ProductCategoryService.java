@@ -32,8 +32,10 @@ public class ProductCategoryService {
     }
 
     public ProductCategoryResponse createProductCategory(ProductCategoryRequest productCategoryRequest) {
-        ProductCategory productCategory = new ProductCategory();
-        productCategory.setVariablesByRequest(productCategoryRequest);
+        ProductCategory productCategory = ProductCategory.builder()
+                .name(productCategoryRequest.getName())
+                .description(productCategoryRequest.getDescription())
+                .build();
 
         ProductCategory savedProductCategory = productCategoryRepository.save(productCategory);
         return new ProductCategoryResponse(savedProductCategory);
@@ -42,7 +44,8 @@ public class ProductCategoryService {
     public ProductCategoryResponse updateProductCategory(ProductCategoryRequest productCategoryRequest,
                                                          Long productCategoryId) {
         ProductCategory productCategory = productCategoryRepository.getReferenceById(productCategoryId);
-        productCategory.setVariablesByRequest(productCategoryRequest);
+        productCategory.setName(productCategoryRequest.getName());
+        productCategory.setDescription(productCategoryRequest.getDescription());
 
         ProductCategory savedProductCategory = productCategoryRepository.save(productCategory);
         return new ProductCategoryResponse(savedProductCategory);

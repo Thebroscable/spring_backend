@@ -23,9 +23,11 @@ public class UserAccountResponse {
         this.id = userAccount.getId();
         this.email = userAccount.getEmail();
         this.password = userAccount.getPassword();
-        Set<UserRole> RoleSet = userAccount.getUserRoles();
-        for (UserRole userRole : RoleSet) {
-            this.userRoles.add(userRole.getName());
+        Set<UserRole> roleSet = userAccount.getUserRoles();
+        if (roleSet != null) {
+            for (UserRole userRole : roleSet) {
+                this.userRoles.add(userRole.getName());
+            }
         }
     }
 }
