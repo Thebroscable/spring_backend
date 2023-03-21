@@ -3,6 +3,7 @@
 * Accessing Data with JPA
 * Database Migrations with Flyway
 * JWT Token authentication with roles
+* JUnit 5 unit tests
 ## Database
 User tables: 
 
