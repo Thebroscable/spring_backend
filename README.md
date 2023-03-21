@@ -1,5 +1,5 @@
 ## Features
-* RESTful Web Service(Service, Controller, Request, Response)
+* RESTful Web Service(Service, Controller, Repository)
 * Accessing Data with JPA
 * Database Migrations with Flyway
 * JWT Token authentication with roles
